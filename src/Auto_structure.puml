@@ -1,0 +1,140 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "Auto",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_2052559 { 
+
+	style=filled
+   
+   Auto2052559[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="3" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" > Auto</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   color: String </TD></TR>
+<TR><TD ALIGN="LEFT" >-   combustible: double  </TD></TR>
+<TR><TD ALIGN="LEFT" >-   marca: String </TD></TR>
+<TR><TD ALIGN="LEFT" >-   patente: String  </TD></TR>
+<TR><TD ALIGN="LEFT" >-   ruedas: ArrayList&lt;Rueda&gt;  </TD></TR>
+
+<HR/>
+<TR><TD ALIGN="LEFT" >+ avanzar()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ colocarRuedas(): ArrayList&lt;Rueda&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ llenarTanque()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ retroceder()</TD></TR>
+</TABLE>>
+	style =filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_79314527 { 
+
+	fillcolor="#ececec"
+	style=filled
+
+   Rueda79314527[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR> <TD   > Rueda </TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   marca: String  </TD></TR>
+<TR><TD ALIGN="LEFT" >-   presion: double  </TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ desinflar()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ inflar()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+Auto2052559 -> Rueda79314527[label="ruedas
+[0..*]"];
+    
+}
+@enduml
